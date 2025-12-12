@@ -5,7 +5,7 @@ import RegisterForm from "./RegisterForm/RegisterForm"
 const RegisterPage = () => {
   return (
     <div>
-      <p className="text-xl font-bold text-left mb-7">Registro de usuario</p> 
+      <p className="text-3xl font-bold text-left mb-7">Registro de usuario</p> 
       <RegisterForm/>
       <div className="mt-4 flex gap-1">
             <p className="text-white opacity-70">¿Ya tienes cuenta?</p>
