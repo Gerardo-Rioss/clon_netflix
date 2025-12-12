@@ -1,0 +1,21 @@
+import Link from "next/link"
+import Terms from "../components/Terms/Terms"
+import RegisterForm from "./RegisterForm/RegisterForm"
+
+const RegisterPage = () => {
+  return (
+    <div>
+      <p className="text-xl font-bold text-left mb-7">Registro de usuario</p> 
+      <RegisterForm/>
+      <div className="mt-4 flex gap-1">
+            <p className="text-white opacity-70">¿Ya tienes cuenta?</p>
+            <Link href="/login" className="opacity-90 text-white">
+                Inicie sesión aquí
+            </Link>
+      </div>
+            <Terms/>
+    </div>
+  )
+}
+
+export default RegisterPage
