@@ -2,6 +2,7 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
+import axios from "axios"
 import { formSchema } from "./RegisterForm.form"
 import { Button } from "@/components/ui/button"
 import {
@@ -16,9 +17,6 @@ import { Input } from "@/components/ui/input"
 
 const RegisterForm = () => {
  
- 
- 
-    // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -28,10 +26,15 @@ const RegisterForm = () => {
     },
   })
  
-  // 2. Define a submit handler.
-  const onSubmit=(values: z.infer<typeof formSchema>)=> {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
+  const onSubmit= async(values: z.infer<typeof formSchema>)=> {
+
+    try {
+      await axios.post("/api/auth/register", values)
+      
+    } catch (error) {
+      console.log(error);
+    }
+    
     console.log(values)
   }
 
