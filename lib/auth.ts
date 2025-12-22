@@ -1,8 +1,6 @@
-import NextAuth from "next-auth";
-import { PrismaAdapter } from "@auth/prisma-adapter";
-import { db } from "./db";
+import { auth } from "../auth"
+export const currentUser = async () => {
+  const session = await auth();
 
-export const { handlers, auth, signIn, signOut }= NextAuth({
-  adapter: PrismaAdapter(db),
-  providers: [],
-});
+  return session?.user;
+};
