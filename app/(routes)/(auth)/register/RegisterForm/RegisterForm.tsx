@@ -29,12 +29,12 @@ const RegisterForm = () => {
 
 
 
-  const onSubmit= async (values: z.infer<typeof formSchema>)=> {
-    try {
+  const onSubmit= (values: z.infer<typeof formSchema>)=> {
+    /* try {
       await axios.post("/api/auth/register", values)
     } catch (error) {
       console.log(error);
-    }
+    } */
     console.log(values)
   }
 
