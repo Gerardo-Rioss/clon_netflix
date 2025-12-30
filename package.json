@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
-    "@prisma/client": "^7.2.0",
+    "@prisma/client": "6.19",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20.19.27",
     "@types/pg": "^8.16.0",
