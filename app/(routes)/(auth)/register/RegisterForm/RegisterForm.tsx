@@ -13,6 +13,7 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
+import { toast } from "sonner"
 
 
 const RegisterForm = () => {
@@ -32,8 +33,11 @@ const RegisterForm = () => {
   const onSubmit= async (values: z.infer<typeof formSchema>)=> {
     try {
       await axios.post("/api/auth/register", values)
+      toast.success("El usuario se ha registrado correctamente")
     } catch (error) {
       console.log(error);
+      toast.error("Ha ocurrido un error al registrar el usuario")
+
     }
     console.log(values)
   }
