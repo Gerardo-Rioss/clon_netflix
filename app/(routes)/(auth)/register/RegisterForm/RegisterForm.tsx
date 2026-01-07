@@ -14,9 +14,11 @@ import {
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { toast } from "sonner"
+import { useRouter } from "next/navigation"
 
 
 const RegisterForm = () => {
+  const router = useRouter();
  
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -34,6 +36,7 @@ const RegisterForm = () => {
     try {
       await axios.post("/api/auth/register", values)
       toast.success("El usuario se ha registrado correctamente")
+      router.push("/profiles")
     } catch (error) {
       console.log(error);
       toast.error("Ha ocurrido un error al registrar el usuario")
